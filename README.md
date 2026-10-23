@@ -10,20 +10,32 @@ RoadRunner_Project 将激光点云和相机图像转换为**局部高程地图�
 | [启动说明](启动说明.md) | 部署完成后，按最少步骤启动、回放和停止 |
 | 本文 | 理解算法流程、输入输出、配置和目录 |
 
-## 下载镜像与模型
+## 下载镜像、模型与示例数据
 
-首次部署可下载以下文件，运行环境和模型权重通过百度网盘单独提供：
+首次部署可下载以下文件，运行环境、模型权重和GOOSE示例数据通过百度网盘单独提供：
 
 | 文件 | 下载地址 | 提取码 | 大小 |
 |---|---|---|---|
 | Docker镜像 `roadrunner_mapping_image_20261023.tar.gz` | [百度网盘：运行环境](https://pan.baidu.com/s/1VblVwzpDR5stwx6IuSzO8w?pwd=wysq) | `wysq` | 约7.77GiB |
 | EoMT/RUGD24语义模型 | [百度网盘：模型文件](https://pan.baidu.com/s/1st34fEGJRn0ozoGuhia0aw?pwd=nscn) | `nscn` | 三个模型文件共约1.18GiB |
+| GOOSE示例 `6_Gravel_Soil_Forest_Path.bag` | [百度网盘：示例rosbag](https://pan.baidu.com/s/175i3xJ-7BiCi-PYaTZfmpQ?pwd=r8sz) | `r8sz` | bag文件约12.31GiB（13.22GB） |
 
 镜像用 `docker load -i roadrunner_mapping_image_20261023.tar.gz` 导入，镜像名为 `roadrunner-mapping:20261023`；下载文件可用[镜像SHA256清单](docker/roadrunner_mapping_image_20261023.tar.gz.sha256)校验。
 
 模型解压或复制到工程的 `models/eomt_rugd24/`，该目录必须包含 `config.json`、`preprocessor_config.json` 和 `model.safetensors`，用[模型SHA256清单](src/roadrunner_mapping/config/eomt_rugd_model.sha256)校验。镜像提供运行依赖，源码通过本仓库获取，模型和GOOSE测试bag分别准备。
 
 下载后按[部署说明](部署说明.md)完成校验、创建容器和编译，再按[启动说明](启动说明.md)运行。
+
+GOOSE示例包含图像、点云、CameraInfo和TF，可用于验证本工程默认配置。下载后将bag放到 `~/code_ws_new/datasets/GOOSE/6_Gravel_Soil_Forest_Path.bag`，按启动说明回放并在RViz查看高程和可通行概率地图。
+
+镜像与模型准备好后，也可执行自动验证：
+
+```bash
+cd ~/code_ws_new/RoadRunner_Project
+./scripts/verify_docker.bash --bag ~/code_ws_new/datasets/GOOSE/6_Gravel_Soil_Forest_Path.bag
+```
+
+该命令在临时容器内编译并运行回归检查，回放示例包前25秒，检查实际语义推理和高程/概率地图输出；报告保存在 `reports/docker-verify-*/`。
 
 ## 1. 整体流程
 
