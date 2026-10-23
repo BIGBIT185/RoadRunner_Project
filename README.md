@@ -152,7 +152,7 @@ RoadRunner_Project/
 | `build.bash` | 在现有容器内catkin编译，生成本工程消息与devel |
 | `ros.bash / container_env.bash` | 使用ROS Noetic与本工程overlay，隔离旧工作区 |
 | `run.bash` | 前台运行统一算法launch |
-| `start.bash / stop.bash` | 启停ROS master、算法和RViz，按功能建立独立tmux会话 |
+| `start.bash / stop.bash` | 可选的tmux后台管理方式；日常普通终端启动见[启动说明](启动说明.md) |
 | `play_goose.bash` | 发布时钟并回放必要的图像、点云、内参及TF话题 |
 | `verify_bag.py` | 在回放时检查真实输入、地图、语义、范围与失败计数 |
 
