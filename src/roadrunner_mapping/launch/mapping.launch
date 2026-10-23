@@ -1,0 +1,19 @@
+<launch>
+  <arg name="config" default="$(find roadrunner_mapping)/config/mapping.yaml"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="enable_semantic" default="true"/>
+  <arg name="rviz" default="false"/>
+  <arg name="mapping_python" default="$(optenv ROADRUNNER_MAPPING_PYTHON /opt/conda/bin/python3)"/>
+  <param name="/use_sim_time" value="$(arg use_sim_time)"/>
+  <node pkg="roadrunner_mapping" type="mapping_node.py" name="roadrunner"
+        launch-prefix="$(arg mapping_python)" output="screen" required="true">
+    <rosparam command="load" file="$(arg config)" subst_value="true"/>
+    <param name="enable_semantic" value="$(arg enable_semantic)"/>
+  </node>
+  <node if="$(arg enable_semantic)" pkg="roadrunner_mapping" type="run_semantic.bash"
+        name="roadrunner_semantic" output="screen">
+    <rosparam command="load" file="$(arg config)" subst_value="true"/>
+  </node>
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="roadrunner_rviz"
+        args="-d $(find roadrunner_mapping)/config/mapping.rviz" output="screen"/>
+</launch>

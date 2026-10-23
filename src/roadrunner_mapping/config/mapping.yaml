@@ -1,0 +1,161 @@
+# RoadRunner 统一建图配置；默认接口对应本机 GOOSE 测试包。
+# 两个节点加载同一文件，共用 image_topic/device/semantic_profile；换传感器在此修改。
+# 实时输出 BEV 默认 40 m × 40 m、0.2 m 分辨率；可通过下面三个参数外部调整。
+map_length_x_m: 40.0
+map_length_y_m: 40.0
+map_resolution_m: 0.2
+# 内部 GPU 世界滚动栅格为 80 m × 80 m，覆盖默认输出地图旋转后的约 70.7 m
+# 对角线；扩大输出地图时需同步增大该参数。
+world_map_length_m: 80.0
+# 暂停发布世界坐标系外部地图；保留实现，后续可显式打开。
+publish_world_map: false
+world_map_publish_hz: 1.0
+
+image_topic: /sensor/camera/windshield/vis/image_rect_color
+camera_info_topic: /sensor/camera/windshield/vis/camera_info
+cloud_topic: /sensor/lidar/vls128_roof/velodyne_points
+
+# RT3000 世界系和机器人/传感器坐标系；GOOSE 不使用 LIO-SAM。
+world_frame: utm
+base_frame: base_link
+camera_frame: sensor/camera/windshield/vis
+lidar_frame: sensor/lidar/vls128_roof
+output_frame: base_link
+
+# 在线几何状态和增量语义状态的时间参数。
+window_sec: 60.0
+strict_window: false
+semantic_decay_tau_sec: 30.0
+semantic_stale_sec: 90.0
+
+# 当前 RGB/点云同步门禁、仿真时间倒退保护和 CameraInfo 缓存。
+sync_slop_sec: 0.08
+future_stamp_tolerance_sec: 1.0
+sync_queue_size: 20
+camera_info_cache_entries: 64
+tf_timeout_sec: 0.25
+
+# 点云解码时的距离过滤，过滤后点云进入 GPU 几何图和语义投影。
+minimum_range: 1.5
+maximum_range: 120.0
+# 几何主链使用 CuPy 解码/变换/体素索引；设为 false 可回退到 CPU 对照路径。
+gpu_pointcloud: true
+# 语义增量图层复用几何 GPU 滚动栅格；设为 false 使用原 CPU NumPy 实现。
+gpu_semantic_map: true
+# 世界滚动栅格读取方式；bilinear 减少旋转时整数取格造成的整图跳变。
+# nearest 保留为回归/故障回退路径。
+sample_mode: bilinear
+sample_min_valid_weight: 0.5
+
+# 几何风险分布统计。该分布只接收有效且有置信度的几何估计，不改变现有
+# geometry_risk/final_probability；geometry_risk_cvar 是风险直方图上尾的保守估计。
+risk_histogram_bins: 16
+risk_cvar_alpha: 0.8
+risk_distribution_decay_sec: 60.0
+# 两个 CVaR 风险头独立开关；原始 legacy 输出始终保留。
+use_geometry_cvar: true
+use_semantic_cvar: true
+
+# 逐栅格高斯高程后验。本工程沿用原 GOOSE 配置的保守初值，后续应依据
+# 各传感器静态地面数据分别标定，不能省略任何参数回退到代码默认值。
+sensor_std_m: 0.02
+range_variance_factor: 0.00001
+measurement_variance_min: 0.0004
+measurement_variance_max: 0.25
+pose_vertical_variance: 0.0009
+frame_variance_min: 0.0004
+posterior_variance_min: 0.0004
+single_point_initial_variance: 0.01
+multi_point_initial_variance: 0.005
+max_variance: 0.25
+process_variance_per_sec: 0.0004
+outlier_variance_per_frame: 0.01
+mahalanobis_threshold: 2.5
+max_effective_points_per_frame: 8
+initial_cluster_gap_m: 0.08
+initial_min_cluster_points: 2
+conflict_tau_sec: 2.0
+confidence_variance_good: 0.0025
+confidence_variance_bad: 0.04
+uncertainty_std_good: 0.04
+uncertainty_std_bad: 0.12
+local_coverage_low: 0.15
+local_coverage_high: 0.60
+
+# Elevation Mapping CuPy 风格的高程生命周期；沿用原 GOOSE 已启用策略。
+enable_elevation_map_lifecycle: true
+# 两项可独立设为 false；同时关闭会跳过射线采样与可见性更新，保留其他生命周期功能。
+# 修改后重启建图节点生效，不支持运行中 rosparam 热切换。
+enable_visibility_cleanup: true
+enable_upper_bound: true
+enable_height_drift_compensation: true
+enable_overhead_filter: true
+enable_wall_edge_sharpening: true
+enable_overlap_clearance: true
+enable_continuous_validity: true
+overhead_slope: 0.30
+overhead_distance_offset_m: 1.0
+overhead_height_intercept_m: 0.20
+overhead_height_cap_m: 2.0
+drift_validity_min: 0.8
+drift_variance_max: 0.01
+drift_min_frames: 3
+drift_slope_max_deg: 8.0
+drift_residual_inlier_m: 0.15
+drift_min_cells: 30
+drift_alpha: 0.2
+drift_max_correction_per_frame_m: 0.05
+wall_point_count_threshold: 20
+wall_min_vertical_span_m: 0.30
+wall_lower_point_tolerance_m: 0.05
+max_visibility_rays_per_frame: 4096
+visibility_max_ray_length_m: 40.0
+visibility_endpoint_margin_m: 0.30
+visibility_sigma_factor: 1.0
+visibility_height_margin_m: 0.01
+visibility_min_age_sec: 0.5
+visibility_cleanup_step: 0.2
+visibility_cleanup_cos_threshold: 0.5
+elevation_validity_threshold: 0.5
+upper_bound_max_age_sec: 10.0
+overlap_clear_radius_m: 2.0
+overlap_clear_range_z_m: 2.0
+
+# VLS128 帧内运动补偿。GOOSE 点云没有 time 字段，auto 使用组织化行序和
+# 相邻帧周期估计扫描内时间；TF 端点不可用时逐帧安全回退到整帧刚体变换。
+# 可设为 off 做对照实验。当前 rosbag 的 header 位于扫描末端，行序为正向。
+scan_deskew_mode: auto
+scan_period_sec: 0.1
+scan_period_min_sec: 0.08
+scan_period_max_sec: 0.12
+scan_period_ema_alpha: 0.1
+scan_stamp_reference: end
+scan_row_direction: 1
+
+# enable_semantic=false 时不启动语义节点，实时链仅维护几何地图。
+enable_semantic: true
+# EoMT 在独立 Python 环境运行；本工程统一入口只部署 EoMT。
+device: cuda:0
+semantic_backend: eomt
+# EoMT 实时链默认使用最新 RUGD 24 类模型；goose64 仅用于旧模型回归。
+semantic_profile: rugd24
+
+# EoMT 原子预测、ready 状态和健康门禁。
+eomt_prediction_topic: /roadrunner_semantic/prediction
+eomt_ready_topic: /roadrunner_semantic/ready
+eomt_readiness_timeout_sec: 120.0
+eomt_staleness_timeout_sec: 5.0
+semantic_cache_sec: 5.0
+semantic_cache_entries: 64
+
+# EoMT 和 CuPy 共用 GPU 时限制 CuPy 内存池，避免语义模型挤占全部显存。
+cupy_memory_pool_limit_bytes: 1610612736
+
+# 独立语义节点参数。模型与校验清单均在本工程，不读取原工作区。
+model_directory: $(find roadrunner_mapping)/../../models/eomt_rugd24
+hash_manifest: $(find roadrunner_mapping)/config/eomt_rugd_model.sha256
+max_inference_hz: 2.0
+attention_backend: auto
+save_predictions: false
+prediction_output_dir: $(find roadrunner_mapping)/../../outputs/semantic_predictions
+prediction_save_queue_size: 4

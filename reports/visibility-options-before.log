@@ -1,0 +1,164 @@
+FFF...                                                                   [100%]
+=================================== FAILURES ===================================
+_____ test_disabled_visibility_features_skip_rays_and_keep_real_elevation ______
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7622f9653df0>
+
+    def test_disabled_visibility_features_skip_rays_and_keep_real_elevation(monkeypatch):
+        import roadrunner_mapping.geometry.gpu_rolling_elevation as module
+
+        grid = _new_numpy_map(
+            monkeypatch,
+            lifecycle_config=ElevationMapLifecycleConfig(
+                enabled=True,
+                enable_visibility_cleanup=False,
+                enable_upper_bound=False,
+            ),
+        )
+
+        def unexpected_raycast(*args, **kwargs):
+            raise AssertionError("disabled visibility features must not sample rays")
+
+        monkeypatch.setattr(module, "raycast_grid_samples", unexpected_raycast)
+>       _advance_points(grid, "no-rays", 1.0, _dense_points())
+
+src/roadrunner_mapping/tests/test_gpu_rolling_elevation.py:1673:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src/roadrunner_mapping/tests/test_gpu_rolling_elevation.py:112: in _advance_points
+    return grid.advance_pointcloud(
+src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py:2631: in advance_pointcloud
+    world_fields = self._transactional_ingest_world_arrays(
+src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py:1264: in _transactional_ingest_world_arrays
+    return self._ingest_world_arrays(
+src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py:1406: in _ingest_world_arrays
+    return self._ingest_world_arrays_lifecycle(
+src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py:222: in wrapped
+    return method(*args, **kwargs)
+src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py:1760: in _ingest_world_arrays_lifecycle
+    samples = raycast_grid_samples(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+args = (<test_gpu_rolling_elevation._NumpyCupy object at 0x7622f96603a0>, array([0., 0., 0.], dtype=float32), array([[-1.5, -...
+       [ 1.2,  1.4,  0. ],
+       [ 1.3,  1.4,  0. ],
+       [ 1.4,  1.4,  0. ]], dtype=float32), 0.2, 40.0, 0.3, ...)
+kwargs = {}
+
+    def unexpected_raycast(*args, **kwargs):
+>       raise AssertionError("disabled visibility features must not sample rays")
+E       AssertionError: disabled visibility features must not sample rays
+
+src/roadrunner_mapping/tests/test_gpu_rolling_elevation.py:1670: AssertionError
+_____ test_disabled_visibility_features_only_refresh_accepted_observations _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7622f4318370>
+
+    def test_disabled_visibility_features_only_refresh_accepted_observations(monkeypatch):
+        import roadrunner_mapping.geometry.gpu_rolling_elevation as module
+
+        grid = _new_numpy_map(
+            monkeypatch,
+            lifecycle_config=ElevationMapLifecycleConfig(
+                enabled=True,
+                enable_visibility_cleanup=False,
+                enable_upper_bound=False,
+            ),
+        )
+        apply_update = module.apply_visibility_and_upper_bounds
+        refreshed = []
+
+        def accepted_observations_only(*args, **kwargs):
+            accepted_ids = args[2]
+            assert accepted_ids.size > 0, "disabled features must skip empty visibility updates"
+            refreshed.append(accepted_ids.copy())
+            return apply_update(*args, **kwargs)
+
+        monkeypatch.setattr(
+            module, "apply_visibility_and_upper_bounds", accepted_observations_only
+        )
+>       _advance_points(grid, "real-observation", 1.0, _dense_points())
+
+src/roadrunner_mapping/tests/test_gpu_rolling_elevation.py:1706:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src/roadrunner_mapping/tests/test_gpu_rolling_elevation.py:112: in _advance_points
+    return grid.advance_pointcloud(
+src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py:2631: in advance_pointcloud
+    world_fields = self._transactional_ingest_world_arrays(
+src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py:1264: in _transactional_ingest_world_arrays
+    return self._ingest_world_arrays(
+src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py:1406: in _ingest_world_arrays
+    return self._ingest_world_arrays_lifecycle(
+src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py:222: in wrapped
+    return method(*args, **kwargs)
+src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py:1864: in _ingest_world_arrays_lifecycle
+    visibility_update = apply_visibility_and_upper_bounds(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+args = (<test_gpu_rolling_elevation._NumpyCupy object at 0x7622f430d520>, VisibilityEvidence(upper_bound_cell_ids=array([], d... False,
+       False, False, False, False, False, False, False, False, False,
+       False, False, False, False]), ...)
+kwargs = {'cfg': ElevationMapLifecycleConfig(enabled=True, enable_visibility_cleanup=False, enable_upper_bound=False, enable_he...-inf,
+       -inf, -inf, -inf, -inf], dtype=float32), -inf), ...), 'max_variance': 0.25, 'outlier_variance': 0.01, ...}
+accepted_ids = array([], dtype=int64), @py_assert1 = 0, @py_assert4 = 0
+@py_assert3 = False, @py_format6 = '0\n{0 = array([], dtype=int64).size\n} > 0'
+@py_format8 = 'disabled features must skip empty visibility updates\n>assert 0\n{0 = array([], dtype=int64).size\n} > 0'
+
+    def accepted_observations_only(*args, **kwargs):
+        accepted_ids = args[2]
+>       assert accepted_ids.size > 0, "disabled features must skip empty visibility updates"
+E       AssertionError: disabled features must skip empty visibility updates
+E       assert 0 > 0
+E        +  where 0 = array([], dtype=int64).size
+
+src/roadrunner_mapping/tests/test_gpu_rolling_elevation.py:1699: AssertionError
+__ test_lifecycle_visibility_options_are_independent_in_full_map[False-False] __
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7622f6df4280>
+cleanup = False, upper = False
+
+    @pytest.mark.parametrize("cleanup,upper", [(False, False), (False, True), (True, False), (True, True)])
+    def test_lifecycle_visibility_options_are_independent_in_full_map(monkeypatch, cleanup, upper):
+        grid = _new_numpy_map(
+            monkeypatch,
+            lifecycle_config=ElevationMapLifecycleConfig(
+                enabled=True,
+                enable_visibility_cleanup=cleanup,
+                enable_upper_bound=upper,
+            ),
+        )
+        sensor_pose = np.eye(4)
+        sensor_pose[:3, 3] = [-1.0, 0.0, 2.0]
+        high_points = _dense_points(1.0) - sensor_pose[:3, 3]
+        low_endpoint = np.array([[2.1, 0.0, 0.0]], dtype=np.float32) - sensor_pose[:3, 3]
+
+        def advance(name, timestamp, points):
+            return grid.advance_pointcloud(
+                name, timestamp, points, np.zeros(len(points), dtype=np.float32),
+                world_from_lidar=sensor_pose,
+                minimum_range=0.0, maximum_range=10.0,
+                target_world_from_body=np.eye(4),
+            )
+
+        for index in range(3):
+            advance("high-{}".format(index), float(index + 1), high_points)
+        previously_valid = grid.elevation_valid.copy()
+        for index in range(3):
+            advance("low-{}".format(index), float(index + 4), low_endpoint)
+
+        cleared = previously_valid & ~grid.elevation_valid
+        assert bool(np.any(cleared)) == cleanup
+        assert bool(np.any(grid.upper_bound_valid)) == upper
+        if not cleanup:
+            np.testing.assert_array_equal(grid.elevation_valid[previously_valid], True)
+        if cleanup or upper:
+            assert grid.last_lifecycle_stats["visibility_input_rays"] == 1
+        else:
+>           assert grid.last_lifecycle_stats["visibility_input_rays"] == 0
+E           assert 1 == 0
+
+src/roadrunner_mapping/tests/test_gpu_rolling_elevation.py:1749: AssertionError
+=========================== short test summary info ============================
+FAILED src/roadrunner_mapping/tests/test_gpu_rolling_elevation.py::test_disabled_visibility_features_skip_rays_and_keep_real_elevation
+FAILED src/roadrunner_mapping/tests/test_gpu_rolling_elevation.py::test_disabled_visibility_features_only_refresh_accepted_observations
+FAILED src/roadrunner_mapping/tests/test_gpu_rolling_elevation.py::test_lifecycle_visibility_options_are_independent_in_full_map[False-False]
+3 failed, 3 passed, 78 deselected in 0.73s

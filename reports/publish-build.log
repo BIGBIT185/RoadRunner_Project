@@ -1,0 +1,51 @@
+-- Using CATKIN_DEVEL_PREFIX: /code_ws_new/RoadRunner_Project/devel
+-- Using CMAKE_PREFIX_PATH: /code_ws_new/RoadRunner_Project/devel;/opt/ros/noetic
+-- This workspace overlays: /code_ws_new/RoadRunner_Project/devel;/opt/ros/noetic
+-- Using PYTHON_EXECUTABLE: /opt/conda/bin/python3
+-- Using Debian Python package layout
+-- Using empy: /opt/conda/lib/python3.8/site-packages/em.py
+-- Using CATKIN_ENABLE_TESTING: OFF
+-- catkin 0.8.12
+-- BUILD_SHARED_LIBS is on
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 1 packages in topological order:
+-- ~~  - roadrunner_mapping
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'roadrunner_mapping'
+-- ==> add_subdirectory(roadrunner_mapping)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- roadrunner_mapping: 1 messages, 0 services
+-- Installing devel-space wrapper /code_ws_new/RoadRunner_Project/src/roadrunner_mapping/scripts/mapping_node.py to /code_ws_new/RoadRunner_Project/devel/lib/roadrunner_mapping
+-- Installing devel-space wrapper /code_ws_new/RoadRunner_Project/src/roadrunner_mapping/scripts/semantic_node.py to /code_ws_new/RoadRunner_Project/devel/lib/roadrunner_mapping
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /code_ws_new/RoadRunner_Project/build
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target sensor_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target _roadrunner_mapping_generate_messages_check_deps_EomtSemanticPrediction
+[ 57%] Built target roadrunner_mapping_generate_messages_cpp
+[ 57%] Built target roadrunner_mapping_generate_messages_nodejs
+[ 57%] Built target roadrunner_mapping_generate_messages_eus
+[ 85%] Built target roadrunner_mapping_generate_messages_lisp
+[100%] Built target roadrunner_mapping_generate_messages_py
+[100%] Built target roadrunner_mapping_generate_messages
+Base path: /code_ws_new/RoadRunner_Project
+Source space: /code_ws_new/RoadRunner_Project/src
+Build space: /code_ws_new/RoadRunner_Project/build
+Devel space: /code_ws_new/RoadRunner_Project/devel
+Install space: /code_ws_new/RoadRunner_Project/install
+####
+#### Running command: "make cmake_check_build_system" in "/code_ws_new/RoadRunner_Project/build"
+####
+####
+#### Running command: "make -j32 -l32" in "/code_ws_new/RoadRunner_Project/build"
+####

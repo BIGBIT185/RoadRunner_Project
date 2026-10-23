@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-23",
+  "test": "same GOOSE bag first 35 seconds at 1x; first 5 wall seconds warmup, next 25 wall seconds measurement; fresh mapper and semantic nodes each run",
+  "bag": "/home/liu/code_ws_new/datasets/GOOSE/6_Gravel_Soil_Forest_Path.bag",
+  "map_length_m": 40,
+  "resolution_m": 0.2,
+  "world_map_length_m": 80,
+  "semantic_enabled": true,
+  "semantic_limit_hz": 2,
+  "rviz_enabled": true,
+  "map_publish_hz": {
+    "both_on": 2.353691041811812,
+    "both_off": 6.674004246257281
+  },
+  "speedup": 2.835548135969367,
+  "mean_frame_ms": {
+    "both_on": 424.8898305084746,
+    "both_off": 149.75722891566267
+  },
+  "failures": {
+    "both_on": 0,
+    "both_off": 0
+  },
+  "semantic_failures": {
+    "both_on": 0,
+    "both_off": 0
+  },
+  "restoration": "persistent YAML unchanged, both features default true; restart test using standard run.bash; no bag left playing"
+}

@@ -1,0 +1,134 @@
+Panels:
+- Class: rviz/Displays
+  Name: Displays
+- Class: rviz/Views
+  Name: Views
+Visualization Manager:
+  Class: ''
+  Displays:
+  - Alpha: 1
+    Autocompute Intensity Bounds: false
+    Class: grid_map_rviz_plugin/GridMap
+    Color Layer: geometry_probability
+    Color Transformer: IntensityLayer
+    Enabled: false
+    Height Layer: elevation
+    Height Transformer: GridMapLayer
+    History Length: 1
+    Invert Rainbow: false
+    Max Color: 0; 255; 0
+    Max Intensity: 1
+    Min Color: 255; 0; 0
+    Min Intensity: 0
+    Name: Geometry Probability
+    Show Grid Lines: true
+    Topic: /roadrunner/traversability_probability
+    Unreliable: false
+    Use Rainbow: false
+    Value: false
+  - Alpha: 1
+    Autocompute Intensity Bounds: false
+    Class: grid_map_rviz_plugin/GridMap
+    Color Layer: semantic_probability
+    Color Transformer: IntensityLayer
+    Enabled: false
+    Height Layer: elevation
+    Height Transformer: GridMapLayer
+    History Length: 1
+    Invert Rainbow: false
+    Max Color: 0; 255; 0
+    Max Intensity: 1
+    Min Color: 255; 0; 0
+    Min Intensity: 0
+    Name: Semantic Probability
+    Show Grid Lines: true
+    Topic: /roadrunner/traversability_probability
+    Unreliable: false
+    Use Rainbow: false
+    Value: false
+  - Alpha: 1
+    Autocompute Intensity Bounds: false
+    Class: grid_map_rviz_plugin/GridMap
+    Color Layer: final_probability
+    Color Transformer: IntensityLayer
+    Enabled: true
+    Height Layer: elevation
+    Height Transformer: GridMapLayer
+    History Length: 1
+    Invert Rainbow: false
+    Max Color: 0; 255; 0
+    Max Intensity: 1
+    Min Color: 255; 0; 0
+    Min Intensity: 0
+    Name: Final Probability
+    Show Grid Lines: true
+    Topic: /roadrunner/traversability_probability
+    Unreliable: false
+    Use Rainbow: false
+    Value: true
+  - Alpha: 1
+    Autocompute Intensity Bounds: true
+    Class: grid_map_rviz_plugin/GridMap
+    Color Layer: elevation
+    Color Transformer: IntensityLayer
+    Enabled: false
+    Height Layer: elevation
+    Height Transformer: GridMapLayer
+    History Length: 1
+    Invert Rainbow: false
+    Max Color: 0; 255; 0
+    Max Intensity: 1
+    Min Color: 255; 0; 0
+    Min Intensity: 0
+    Name: Metric Elevation
+    Show Grid Lines: true
+    Topic: /roadrunner/traversability_probability
+    Unreliable: false
+    Use Rainbow: true
+    Value: false
+  - Class: rviz/PointCloud2
+    Name: LiDAR input
+    Enabled: false
+    Topic: /sensor/lidar/vls128_roof/velodyne_points
+    Queue Size: 1
+    Size (Pixels): 1
+    Size (m): 0.025
+    Style: Points
+    Color Transformer: Intensity
+    Position Transformer: XYZ
+    Value: false
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: base_link
+    Frame Rate: 30
+  Name: root
+  Tools:
+  - Class: rviz/Interact
+  - Class: rviz/MoveCamera
+  - Class: rviz/Select
+  - Class: rviz/FocusCamera
+  - Class: rviz/Measure
+  - Class: rviz/PublishPoint
+    Single click: true
+    Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 80
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Name: Current View
+      Pitch: 0.8
+      Target Frame: base_link
+      Value: Orbit (rviz)
+      Yaw: 3.14
+    Saved: null
+Window Geometry:
+  Displays:
+    collapsed: false
+  Hide Left Dock: false
+  Hide Right Dock: true

@@ -1,0 +1,15 @@
+/build/
+/devel/
+/install/
+/.catkin_tools/
+/.cache/
+/models/
+/logs/
+/outputs/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.bag
+*.bag.active
+/.catkin_workspace
+/src/CMakeLists.txt

@@ -1,0 +1,29 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+______ test_terrain_retains_metric_height_probability_and_cell_direction _______
+
+    def test_terrain_retains_metric_height_probability_and_cell_direction():
+        spec = MapSpec(-1., 1., -1.5, 1.5, 1.)
+        probability = np.array([[.1, .2, np.nan], [.4, .5, .6]], np.float32)
+        elevation = np.array([[-2., -1., np.nan], [1., 2., 3.]], np.float32)
+        original = probability.copy()
+>       message = publisher()({"final_probability": probability}, rospy.Time(12, 34),
+                              "base_link", map_spec=spec, elevation=elevation)
+E       TypeError: probability_grid_map_message() got an unexpected keyword argument 'elevation'
+
+../../RoadRunner_Project/src/roadrunner_mapping/tests/test_terrain_output.py:36: TypeError
+_____________ test_elevation_shape_must_match_probability_geometry _____________
+
+    def test_elevation_shape_must_match_probability_geometry():
+        spec = MapSpec(-1., 1., -1.5, 1.5, 1.)
+        with pytest.raises(ValueError, match="elevation.*shape"):
+>           publisher()({"final_probability": np.ones((2, 3), np.float32)},
+                        rospy.Time(1), "base_link", map_spec=spec,
+                        elevation=np.ones((3, 2), np.float32))
+E           TypeError: probability_grid_map_message() got an unexpected keyword argument 'elevation'
+
+../../RoadRunner_Project/src/roadrunner_mapping/tests/test_terrain_output.py:62: TypeError
+=========================== short test summary info ============================
+FAILED ../../RoadRunner_Project/src/roadrunner_mapping/tests/test_terrain_output.py::test_terrain_retains_metric_height_probability_and_cell_direction
+FAILED ../../RoadRunner_Project/src/roadrunner_mapping/tests/test_terrain_output.py::test_elevation_shape_must_match_probability_geometry
+2 failed in 0.16s

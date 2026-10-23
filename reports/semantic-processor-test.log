@@ -1,0 +1,2 @@
+PASS: test_real_processor_merges_three_overlapping_crops_to_original_size
+Executed the test function in /opt/eomt/bin/python; dependency/model skip is treated as failure.

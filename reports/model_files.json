@@ -1,0 +1,17 @@
+[
+  {
+    "name": "config.json",
+    "bytes": 1755,
+    "sha256": "6c116600243c10fd602ec67c621344113ff6d2a3c80c6afe4b14675ca820b5b4"
+  },
+  {
+    "name": "preprocessor_config.json",
+    "bytes": 683,
+    "sha256": "c624facc48f739603465f1142d1311b64f3be7a39ef5164a630f7098454f6a7b"
+  },
+  {
+    "name": "model.safetensors",
+    "bytes": 1263613088,
+    "sha256": "bbd7660d16c4f76b6aa475e8a4d7d200f603811608b5e4896b9e53fa72c47004"
+  }
+]

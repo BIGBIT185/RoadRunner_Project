@@ -1,0 +1,35 @@
+{
+  "backend": "real CuPy/CUDA",
+  "input": "synthetic flat point cloud; functional check, not bag speed benchmark",
+  "combinations": [
+    {
+      "enable_visibility_cleanup": false,
+      "enable_upper_bound": false,
+      "geometry_valid_cells": 225,
+      "visibility_input_rays": 0,
+      "passed": true
+    },
+    {
+      "enable_visibility_cleanup": false,
+      "enable_upper_bound": true,
+      "geometry_valid_cells": 225,
+      "visibility_input_rays": 900,
+      "passed": true
+    },
+    {
+      "enable_visibility_cleanup": true,
+      "enable_upper_bound": false,
+      "geometry_valid_cells": 225,
+      "visibility_input_rays": 900,
+      "passed": true
+    },
+    {
+      "enable_visibility_cleanup": true,
+      "enable_upper_bound": true,
+      "geometry_valid_cells": 225,
+      "visibility_input_rays": 900,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

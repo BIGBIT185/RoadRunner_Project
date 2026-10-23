@@ -1,0 +1,428 @@
+{
+  "date": "2026-10-23",
+  "source_root": "/home/liu/code_ws_new/RoadRunner",
+  "source_head": "451961a2111ef894fe2b3ffb77838f23f610c39d",
+  "source_status_at_migration": " M .gitignore\n M catkin_ws/src/dataset_builders/goose_roadrunner_dataset/CMakeLists.txt\n M catkin_ws/src/dataset_builders/goose_roadrunner_dataset/README.md\n D catkin_ws/src/dataset_builders/goose_roadrunner_dataset/config/mavs_camera_info.yaml\n M catkin_ws/src/dataset_builders/goose_roadrunner_dataset/config/online_traversability.yaml\n M catkin_ws/src/dataset_builders/goose_roadrunner_dataset/config/online_traversability_hound.yaml\n D catkin_ws/src/dataset_builders/goose_roadrunner_dataset/config/online_traversability_mavs.yaml\n D catkin_ws/src/dataset_builders/goose_roadrunner_dataset/launch/mavs_component.launch\n D catkin_ws/src/dataset_builders/goose_roadrunner_dataset/launch/mavs_goose_sim.launch\n M catkin_ws/src/dataset_builders/goose_roadrunner_dataset/launch/online_traversability.launch\n D catkin_ws/src/dataset_builders/goose_roadrunner_dataset/scripts/mavs_goose_sensor_adapter.py\n D catkin_ws/src/dataset_builders/goose_roadrunner_dataset/scripts/mavs_native_gui.py\n M catkin_ws/src/dataset_builders/goose_roadrunner_dataset/tests/test_far_near_diagnostic.py\n D catkin_ws/src/dataset_builders/goose_roadrunner_dataset/tests/test_mavs_sim_config.py\n M catkin_ws/src/dataset_builders/goose_roadrunner_dataset/tests/test_sensor_config.py\n M \"docs/ai_handoff/GOOSE\\346\\240\\270\\345\\277\\203\\344\\273\\243\\347\\240\\201\\344\\272\\244\\346\\216\\245.md\"\n M docs/superpowers/plans/2026-09-09-mavs-goose-sim.md\n M docs/superpowers/specs/2026-09-09-mavs-goose-sim-design.md\n M docs/superpowers/specs/2026-09-09-mavs-native-visualization-design.md\n M \"docs/\\346\\234\\254\\346\\234\\272\\345\\220\\257\\345\\212\\250\\350\\257\\264\\346\\230\\216/GOOSE\\345\\216\\237\\347\\211\\210rosbag\\345\\220\\257\\345\\212\\250\\350\\257\\264\\346\\230\\216.md\"\n D \"docs/\\346\\234\\254\\346\\234\\272\\345\\220\\257\\345\\212\\250\\350\\257\\264\\346\\230\\216/MAVS\\344\\273\\277\\347\\234\\237\\345\\220\\257\\345\\212\\250\\347\\256\\200\\347\\211\\210.md\"\n D sim/mavs/README.md\n D sim/mavs/patches/0001-mavs-embree-export.patch\n D sim/mavs/patches/0002-mavs-ros-noetic-dependencies.patch\n D sim/mavs/patches/README.md\n D sim/mavs/setup_mavs.sh\n?? catkin_ws/src/roadrunner_minimal/\n",
+  "replacements": [
+    [
+      "goose_roadrunner_dataset.rellis_compat",
+      "roadrunner_mapping.geometry"
+    ],
+    [
+      "goose_roadrunner_dataset.sensors.bag_adapter",
+      "roadrunner_mapping.sensors.pointcloud_adapter"
+    ],
+    [
+      "goose_roadrunner_dataset.gpu_incremental_semantic_grid",
+      "roadrunner_mapping.online.gpu_incremental_semantic_grid"
+    ],
+    [
+      "goose_roadrunner_dataset.risk_statistics",
+      "roadrunner_mapping.online.risk_statistics"
+    ],
+    [
+      "goose_roadrunner_dataset.online_backend",
+      "roadrunner_mapping.online.online_backend"
+    ],
+    [
+      "goose_roadrunner_dataset.incremental_semantic_grid",
+      "roadrunner_mapping.online.incremental_semantic_grid"
+    ],
+    [
+      "goose_roadrunner_dataset.gpu_pointcloud",
+      "roadrunner_mapping.online.gpu_pointcloud"
+    ],
+    [
+      "goose_roadrunner_dataset.online_fusion",
+      "roadrunner_mapping.online.online_fusion"
+    ],
+    [
+      "goose_roadrunner_dataset.semantic_profiles",
+      "roadrunner_mapping.semantics.semantic_profiles"
+    ],
+    [
+      "goose_roadrunner_dataset.goose_semantics",
+      "roadrunner_mapping.semantics.goose_semantics"
+    ],
+    [
+      "goose_roadrunner_dataset.eomt_runtime",
+      "roadrunner_mapping.semantics.eomt_runtime"
+    ],
+    [
+      "goose_roadrunner_dataset.eomt_postprocess",
+      "roadrunner_mapping.semantics.eomt_postprocess"
+    ],
+    [
+      "goose_roadrunner_dataset.semantic_transport",
+      "roadrunner_mapping.semantics.semantic_transport"
+    ],
+    [
+      "goose_roadrunner_dataset.sensor_config",
+      "roadrunner_mapping.sensors.sensor_config"
+    ],
+    [
+      "goose_roadrunner_dataset.bag_adapter",
+      "roadrunner_mapping.sensors.bag_adapter"
+    ],
+    [
+      "goose_roadrunner_dataset.synchronization",
+      "roadrunner_mapping.sensors.synchronization"
+    ],
+    [
+      "goose_roadrunner_dataset.trajectory_adapter",
+      "roadrunner_mapping.sensors.trajectory_adapter"
+    ],
+    [
+      "goose_roadrunner_dataset.gps_audit",
+      "roadrunner_mapping.sensors.gps_audit"
+    ],
+    [
+      "goose_roadrunner_dataset.scan_quality",
+      "roadrunner_mapping.sensors.scan_quality"
+    ],
+    [
+      "goose_roadrunner_dataset.trajectory",
+      "roadrunner_mapping.sensors.trajectory"
+    ],
+    [
+      "goose_roadrunner_dataset.calibration",
+      "roadrunner_mapping.sensors.calibration"
+    ],
+    [
+      "goose_roadrunner_dataset.beamng_adapter",
+      "roadrunner_mapping.sensors.beamng_adapter"
+    ],
+    [
+      "from goose_roadrunner_dataset import online_fusion",
+      "from roadrunner_mapping.online import online_fusion"
+    ],
+    [
+      "from goose_roadrunner_dataset import online_backend",
+      "from roadrunner_mapping.online import online_backend"
+    ],
+    [
+      "goose_roadrunner_dataset",
+      "roadrunner_mapping"
+    ],
+    [
+      "goose_online_traversability_node.py",
+      "mapping_node.py"
+    ],
+    [
+      "goose_eomt_semantic_node.py",
+      "semantic_node.py"
+    ],
+    [
+      "GooseOnlineTraversability",
+      "RoadRunnerMapping"
+    ],
+    [
+      "goose_online_traversability",
+      "roadrunner"
+    ],
+    [
+      "goose_eomt_semantic",
+      "roadrunner_semantic"
+    ],
+    [
+      "..rellis_compat.",
+      "..geometry."
+    ]
+  ],
+  "files": [
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/scripts/goose_eomt_semantic_node.py",
+      "destination": "src/roadrunner_mapping/scripts/semantic_node.py",
+      "source_sha256": "60d675d20a95ad957c0fad5300ed20306536ae5839d50faf2886b1cd35096309",
+      "migrated_sha256_before_interface_changes": "1fe658edbcdaee49e6d84598106e5a0732e794b07f321fcfc0c7660d2ef477d0",
+      "current_sha256": "9eba6e9cff0ee4be44440ca0d8689839717cab7274b385350f8736c2372346b2",
+      "identical_after_name_replacements": false
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/scripts/goose_online_traversability_node.py",
+      "destination": "src/roadrunner_mapping/scripts/mapping_node.py",
+      "source_sha256": "f0b1cbddedb244736e599cc125cdbbd1baa4593925d4dc2e375360f815690e0b",
+      "migrated_sha256_before_interface_changes": "61c8a769591518aeaf60b7fa09cc8757f5d06873109236b8b591cf0b731c1a60",
+      "current_sha256": "98a4012b93bf63d4e1cd3231b54a9a64698e7ab62f960b83eab3c6c81d2a18f4",
+      "identical_after_name_replacements": false
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/online/gpu_incremental_semantic_grid.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/online/gpu_incremental_semantic_grid.py",
+      "source_sha256": "8388e503d2b6175d2b6184a84cf065c2d4e2cf2d2ff9198e8c9a04477183a8b2",
+      "migrated_sha256_before_interface_changes": "8388e503d2b6175d2b6184a84cf065c2d4e2cf2d2ff9198e8c9a04477183a8b2",
+      "current_sha256": "0d9ee7fc9ea214a46156d363252baf5609108120e3cd67e674b2355e9836a69a",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/online/gpu_pointcloud.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/online/gpu_pointcloud.py",
+      "source_sha256": "060a6fd049d845d951108c51be98b897d531b76537c03c1621c5272a45763417",
+      "migrated_sha256_before_interface_changes": "060a6fd049d845d951108c51be98b897d531b76537c03c1621c5272a45763417",
+      "current_sha256": "060a6fd049d845d951108c51be98b897d531b76537c03c1621c5272a45763417",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/online/incremental_semantic_grid.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/online/incremental_semantic_grid.py",
+      "source_sha256": "b7b940378b60519312b3d990482322edc5828c14d8efc1f0f26b4f1f7ac907d6",
+      "migrated_sha256_before_interface_changes": "b55458ebd6d72155c6783347f045a54faee10f164a852da396f8023d925be463",
+      "current_sha256": "b55458ebd6d72155c6783347f045a54faee10f164a852da396f8023d925be463",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/online/online_backend.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/online/online_backend.py",
+      "source_sha256": "423405ff338d0058294ce3a637b5e95ae0e0d69a0fcf7542c143894df533ec82",
+      "migrated_sha256_before_interface_changes": "423405ff338d0058294ce3a637b5e95ae0e0d69a0fcf7542c143894df533ec82",
+      "current_sha256": "423405ff338d0058294ce3a637b5e95ae0e0d69a0fcf7542c143894df533ec82",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/online/online_fusion.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/online/online_fusion.py",
+      "source_sha256": "7027cdef0e931c59841c1e8c7f8c9b2a49b8091652f0e5717e08705857c76402",
+      "migrated_sha256_before_interface_changes": "cda2f8cc3272fe91c8ca4fb93f0c4a6d78a894b2fe63af5b7006ce0310679a2c",
+      "current_sha256": "cda2f8cc3272fe91c8ca4fb93f0c4a6d78a894b2fe63af5b7006ce0310679a2c",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/online/risk_statistics.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/online/risk_statistics.py",
+      "source_sha256": "57c975bb5950d43cb3dba49079976f4eb57a9ea00b00fb860b70a887eb0e99bf",
+      "migrated_sha256_before_interface_changes": "57c975bb5950d43cb3dba49079976f4eb57a9ea00b00fb860b70a887eb0e99bf",
+      "current_sha256": "57c975bb5950d43cb3dba49079976f4eb57a9ea00b00fb860b70a887eb0e99bf",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/calibration.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/calibration.py",
+      "source_sha256": "1d2cc71d8f85db12aa6b72af35c81e623672ad450133de724243312707133171",
+      "migrated_sha256_before_interface_changes": "1d2cc71d8f85db12aa6b72af35c81e623672ad450133de724243312707133171",
+      "current_sha256": "1d2cc71d8f85db12aa6b72af35c81e623672ad450133de724243312707133171",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/coordinates.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/coordinates.py",
+      "source_sha256": "cf93cab07794fbb26ff5e6ffff553b08dadfaff75f622a94e9b320c97d4c2ea6",
+      "migrated_sha256_before_interface_changes": "cf93cab07794fbb26ff5e6ffff553b08dadfaff75f622a94e9b320c97d4c2ea6",
+      "current_sha256": "cf93cab07794fbb26ff5e6ffff553b08dadfaff75f622a94e9b320c97d4c2ea6",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/elevation_grid_geometry.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/elevation_grid_geometry.py",
+      "source_sha256": "42ffde955c94a52d2a43ed0b009377852ea4b475e52136dea53e8e8585e85fc6",
+      "migrated_sha256_before_interface_changes": "42ffde955c94a52d2a43ed0b009377852ea4b475e52136dea53e8e8585e85fc6",
+      "current_sha256": "42ffde955c94a52d2a43ed0b009377852ea4b475e52136dea53e8e8585e85fc6",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/elevation_map_lifecycle.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/elevation_map_lifecycle.py",
+      "source_sha256": "0a8be2c515b17d18381c08b097e67d70449e5c09b7f29d9188b3a87cfe652cda",
+      "migrated_sha256_before_interface_changes": "0a8be2c515b17d18381c08b097e67d70449e5c09b7f29d9188b3a87cfe652cda",
+      "current_sha256": "0a8be2c515b17d18381c08b097e67d70449e5c09b7f29d9188b3a87cfe652cda",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/gaussian_elevation.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/gaussian_elevation.py",
+      "source_sha256": "5f449af78777cd9cca6ee29087fa9e8a75f6fb74571387a1e177325589bd3f76",
+      "migrated_sha256_before_interface_changes": "5f449af78777cd9cca6ee29087fa9e8a75f6fb74571387a1e177325589bd3f76",
+      "current_sha256": "5f449af78777cd9cca6ee29087fa9e8a75f6fb74571387a1e177325589bd3f76",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/geometry_batch.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/geometry_batch.py",
+      "source_sha256": "088cc024ac826bceaa77ccffa0181a133fb3df03912d2a8d4a3894e0795bc833",
+      "migrated_sha256_before_interface_changes": "088cc024ac826bceaa77ccffa0181a133fb3df03912d2a8d4a3894e0795bc833",
+      "current_sha256": "088cc024ac826bceaa77ccffa0181a133fb3df03912d2a8d4a3894e0795bc833",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/geometry_cuda.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/geometry_cuda.py",
+      "source_sha256": "4e9258c5af38b38ff593201d1bad34c712dc813fb047f1496505b1446734945d",
+      "migrated_sha256_before_interface_changes": "4e9258c5af38b38ff593201d1bad34c712dc813fb047f1496505b1446734945d",
+      "current_sha256": "4e9258c5af38b38ff593201d1bad34c712dc813fb047f1496505b1446734945d",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/geometry_hindsight.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/geometry_hindsight.py",
+      "source_sha256": "c55517bb59c968189aef69eb114a61420b481c30b42e3c6a85f97ccbdbb40aaa",
+      "migrated_sha256_before_interface_changes": "c55517bb59c968189aef69eb114a61420b481c30b42e3c6a85f97ccbdbb40aaa",
+      "current_sha256": "c55517bb59c968189aef69eb114a61420b481c30b42e3c6a85f97ccbdbb40aaa",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/geometry_snapshot.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/geometry_snapshot.py",
+      "source_sha256": "605ba5b3db5dc15d245938d7626915f32d81b96dad36c562361bb1db2c2ef3b3",
+      "migrated_sha256_before_interface_changes": "605ba5b3db5dc15d245938d7626915f32d81b96dad36c562361bb1db2c2ef3b3",
+      "current_sha256": "605ba5b3db5dc15d245938d7626915f32d81b96dad36c562361bb1db2c2ef3b3",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/gpu_rolling_elevation.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_elevation.py",
+      "source_sha256": "5cbe8ce011b6ac40d88345fb91cf4cfc0107608f25543f9ad425e4f1429cdbea",
+      "migrated_sha256_before_interface_changes": "5cbe8ce011b6ac40d88345fb91cf4cfc0107608f25543f9ad425e4f1429cdbea",
+      "current_sha256": "b24a6e05a1d6ab8ddeb0c074e6bf62ca11d5562914d3f4c494b6327ced0a1819",
+      "identical_after_name_replacements": false,
+      "sha256_at_initial_migration": "5cbe8ce011b6ac40d88345fb91cf4cfc0107608f25543f9ad425e4f1429cdbea",
+      "post_migration_change": "2026-10-23: honor existing visibility cleanup/height upper bound options by skipping ray generation and empty visibility updates when both are disabled; accepted-observation validity refresh retained."
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/gpu_rolling_grid.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/gpu_rolling_grid.py",
+      "source_sha256": "3a78df9c08bfd09fde4379f14126b2f704b3a6b7749bee4569028f22c3133a8c",
+      "migrated_sha256_before_interface_changes": "3a78df9c08bfd09fde4379f14126b2f704b3a6b7749bee4569028f22c3133a8c",
+      "current_sha256": "3a78df9c08bfd09fde4379f14126b2f704b3a6b7749bee4569028f22c3133a8c",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/ground_fit.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/ground_fit.py",
+      "source_sha256": "fc9a5e4f62cecae88095d1eea1881f955c012726238e5cabc40b0c74a929cb97",
+      "migrated_sha256_before_interface_changes": "fc9a5e4f62cecae88095d1eea1881f955c012726238e5cabc40b0c74a929cb97",
+      "current_sha256": "fc9a5e4f62cecae88095d1eea1881f955c012726238e5cabc40b0c74a929cb97",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/pointcloud.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/pointcloud.py",
+      "source_sha256": "00613e0144602698b35049147c0e95b227a76923156b4613831ac7849cb09417",
+      "migrated_sha256_before_interface_changes": "00613e0144602698b35049147c0e95b227a76923156b4613831ac7849cb09417",
+      "current_sha256": "00613e0144602698b35049147c0e95b227a76923156b4613831ac7849cb09417",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/rugd.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/rugd.py",
+      "source_sha256": "92045571d29f56fa27f6971179ad2a4a1a08e1fd06136ea9e928b7c9ec36983e",
+      "migrated_sha256_before_interface_changes": "92045571d29f56fa27f6971179ad2a4a1a08e1fd06136ea9e928b7c9ec36983e",
+      "current_sha256": "92045571d29f56fa27f6971179ad2a4a1a08e1fd06136ea9e928b7c9ec36983e",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/schema.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/schema.py",
+      "source_sha256": "afe73aaafc8d37fec09d74b8d4a30d8e216ee5b5a0b47a4ada40cd325047c932",
+      "migrated_sha256_before_interface_changes": "afe73aaafc8d37fec09d74b8d4a30d8e216ee5b5a0b47a4ada40cd325047c932",
+      "current_sha256": "afe73aaafc8d37fec09d74b8d4a30d8e216ee5b5a0b47a4ada40cd325047c932",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/semantic.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/semantic.py",
+      "source_sha256": "7e98a0dbdfa707815f7c16e99a10e8a6b6c7ef51a1c20c23c85436c22cd84e0e",
+      "migrated_sha256_before_interface_changes": "7e98a0dbdfa707815f7c16e99a10e8a6b6c7ef51a1c20c23c85436c22cd84e0e",
+      "current_sha256": "7e98a0dbdfa707815f7c16e99a10e8a6b6c7ef51a1c20c23c85436c22cd84e0e",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/rellis_compat/sliding_voxel_geometry.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/geometry/sliding_voxel_geometry.py",
+      "source_sha256": "3843f0a3b9961d9ddafd517b3c732d5d83db21684587874461277866dfc633ee",
+      "migrated_sha256_before_interface_changes": "3843f0a3b9961d9ddafd517b3c732d5d83db21684587874461277866dfc633ee",
+      "current_sha256": "3843f0a3b9961d9ddafd517b3c732d5d83db21684587874461277866dfc633ee",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/semantics/eomt_postprocess.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/semantics/eomt_postprocess.py",
+      "source_sha256": "796b50cf7df55ccd0b74c23d3361ab1c4b02a06853f4c8cfe00b07b16ab6c2a1",
+      "migrated_sha256_before_interface_changes": "796b50cf7df55ccd0b74c23d3361ab1c4b02a06853f4c8cfe00b07b16ab6c2a1",
+      "current_sha256": "796b50cf7df55ccd0b74c23d3361ab1c4b02a06853f4c8cfe00b07b16ab6c2a1",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/semantics/eomt_runtime.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/semantics/eomt_runtime.py",
+      "source_sha256": "6c79c1b8cb034b8999eaa0ffcdc9411b21c169b26f1db26c6ee36834d85ada0b",
+      "migrated_sha256_before_interface_changes": "6c79c1b8cb034b8999eaa0ffcdc9411b21c169b26f1db26c6ee36834d85ada0b",
+      "current_sha256": "6c79c1b8cb034b8999eaa0ffcdc9411b21c169b26f1db26c6ee36834d85ada0b",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/semantics/goose_semantics.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/semantics/goose_semantics.py",
+      "source_sha256": "1991fcc9d3431e37720217279e6886b6482a36aae7c11d2b46a48e7849e61692",
+      "migrated_sha256_before_interface_changes": "1991fcc9d3431e37720217279e6886b6482a36aae7c11d2b46a48e7849e61692",
+      "current_sha256": "1991fcc9d3431e37720217279e6886b6482a36aae7c11d2b46a48e7849e61692",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/semantics/semantic_profiles.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/semantics/semantic_profiles.py",
+      "source_sha256": "8924cfb862447592f599b01aa26ec7643121824fc237e78fa1f9bfcf8617f698",
+      "migrated_sha256_before_interface_changes": "8924cfb862447592f599b01aa26ec7643121824fc237e78fa1f9bfcf8617f698",
+      "current_sha256": "8924cfb862447592f599b01aa26ec7643121824fc237e78fa1f9bfcf8617f698",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/semantics/semantic_transport.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/semantics/semantic_transport.py",
+      "source_sha256": "dc172514284391f91918f990e5e8b10a7d089857a84bc6d5e24ce57565b2305f",
+      "migrated_sha256_before_interface_changes": "dc172514284391f91918f990e5e8b10a7d089857a84bc6d5e24ce57565b2305f",
+      "current_sha256": "dc172514284391f91918f990e5e8b10a7d089857a84bc6d5e24ce57565b2305f",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/sensors/bag_adapter.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/sensors/pointcloud_adapter.py",
+      "source_sha256": "a868f17492d6a34ae79c42540f9398c5f77112d97437c97dbfb51117364b3a18",
+      "migrated_sha256_before_interface_changes": "7859c755812ba5db3267441d1e583b730515b2cc1fdb0c341fa14b4fd2faddb7",
+      "current_sha256": "7859c755812ba5db3267441d1e583b730515b2cc1fdb0c341fa14b4fd2faddb7",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/sensors/calibration.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/sensors/calibration.py",
+      "source_sha256": "aa4274401609c028ef5db0f53591784fde12cd6ffa820b175125f69bd844241f",
+      "migrated_sha256_before_interface_changes": "9003c8852f8e832cd28e116041c5cd8234830dde724671623a201d17cc247942",
+      "current_sha256": "9003c8852f8e832cd28e116041c5cd8234830dde724671623a201d17cc247942",
+      "identical_after_name_replacements": true
+    },
+    {
+      "source": "catkin_ws/src/dataset_builders/goose_roadrunner_dataset/goose_roadrunner_dataset/sensors/trajectory.py",
+      "destination": "src/roadrunner_mapping/roadrunner_mapping/sensors/trajectory.py",
+      "source_sha256": "9f3e4fb04950d108e718e8928095c67138385f08ae0d1388dd831e9fe74ab7b8",
+      "migrated_sha256_before_interface_changes": "9f3e4fb04950d108e718e8928095c67138385f08ae0d1388dd831e9fe74ab7b8",
+      "current_sha256": "9f3e4fb04950d108e718e8928095c67138385f08ae0d1388dd831e9fe74ab7b8",
+      "identical_after_name_replacements": true
+    }
+  ],
+  "copied_test_files": [
+    "test_gaussian_elevation.py",
+    "test_elevation_map_lifecycle.py",
+    "test_gpu_rolling_elevation.py",
+    "test_gpu_shared_rolling_grid.py",
+    "test_risk_mapping_statistics.py",
+    "test_online_fusion.py",
+    "test_semantic_transport.py",
+    "test_eomt_runtime.py",
+    "test_eomt_postprocess.py",
+    "test_online_backend.py",
+    "test_online_map_spec.py",
+    "test_camera_info_arrival.py"
+  ],
+  "original_worktree_unchanged_during_migration": true,
+  "interface_changes": {
+    "scripts/mapping_node.py": "New package/node names; GridMap metric elevation and geometric validity mask; same-frame masked elevation Image. Numerical mapping and risk functions unchanged.",
+    "scripts/semantic_node.py": "New package/node names; self-contained model/manifest default paths. Inference algorithm unchanged."
+  },
+  "post_migration_updates": [
+    {
+      "date": "2026-10-23",
+      "description": "Optional visibility cleanup and height upper bound compute bypass; defaults unchanged.",
+      "regression_log": "reports/visibility-options-tests.log",
+      "core_tests_passed": 649,
+      "core_tests_skipped": 1
+    }
+  ]
+}

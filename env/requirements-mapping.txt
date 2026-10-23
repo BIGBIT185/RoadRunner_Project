@@ -1,0 +1,4 @@
+# Python 3.8; ROS packages are supplied by ROS Noetic, not PyPI.
+numpy==1.22.4
+scipy==1.7.3
+cupy-cuda11x==12.3.0

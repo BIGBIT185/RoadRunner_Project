@@ -1,0 +1,2 @@
+Sessions: roadrunner_core, roadrunner_mapping, roadrunner_rviz
+Wait for "EoMT ready", then play GOOSE in session roadrunner_bag (see README).
