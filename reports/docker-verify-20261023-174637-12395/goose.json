@@ -1,0 +1,205 @@
+{
+  "inputs": {
+    "camera_info_topic": 238,
+    "image_topic": 238,
+    "cloud_topic": 238
+  },
+  "maps": {
+    "ordinary": {
+      "count": 102,
+      "frame": "base_link",
+      "stamp": 1658914750.0760448,
+      "resolution": 0.2,
+      "length_x": 40.0,
+      "length_y": 40.0,
+      "layers": {
+        "geometry_probability": {
+          "cells": 40000,
+          "finite": 34321,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "semantic_probability": {
+          "cells": 40000,
+          "finite": 20355,
+          "min": 0.0,
+          "max": 0.75
+        },
+        "final_probability": {
+          "cells": 40000,
+          "finite": 34770,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "elevation": {
+          "cells": 40000,
+          "finite": 34321,
+          "min": -1.1936804056167603,
+          "max": 4.022780418395996
+        }
+      }
+    },
+    "cvar": {
+      "count": 102,
+      "frame": "base_link",
+      "stamp": 1658914750.0760448,
+      "resolution": 0.2,
+      "length_x": 40.0,
+      "length_y": 40.0,
+      "layers": {
+        "geometry_probability": {
+          "cells": 40000,
+          "finite": 34321,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "semantic_probability": {
+          "cells": 40000,
+          "finite": 20355,
+          "min": 0.0,
+          "max": 0.6875
+        },
+        "final_probability": {
+          "cells": 40000,
+          "finite": 34770,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "elevation": {
+          "cells": 40000,
+          "finite": 34321,
+          "min": -1.1936804056167603,
+          "max": 4.022780418395996
+        }
+      }
+    }
+  },
+  "semantic_predictions": 100,
+  "semantic_ready": true,
+  "mapper_diagnostics": {
+    "stage": "idle",
+    "semantic_stage": "idle",
+    "window_sec": "60.000",
+    "window_span_sec": "24.744",
+    "geometry_frames": "102",
+    "semantic_decay_tau_sec": "30.000",
+    "semantic_stale_sec": "90.000",
+    "received": "238",
+    "processed": "102",
+    "dropped": "136",
+    "failures": "0",
+    "geometry_epoch_discards": "0",
+    "semantic_processed": "89",
+    "semantic_dropped": "11",
+    "semantic_failures": "0",
+    "semantic_epoch_discards": "0",
+    "gpu_decode_fallbacks": "0",
+    "gpu_pointcloud": "True",
+    "gpu_semantic_map": "True",
+    "sample_mode": "bilinear",
+    "sample_min_valid_weight": "0.500",
+    "scan_deskew_mode": "auto",
+    "scan_stamp_reference": "end",
+    "scan_row_direction": "1",
+    "scan_period_estimate_sec": "0.10331",
+    "scan_deskew_applied": "173",
+    "scan_deskew_fallbacks": "2",
+    "strict_window": "False",
+    "geometry_backend": "cuda",
+    "semantic_enabled": "True",
+    "semantic_backend": "eomt",
+    "publish_legacy_probability": "True",
+    "camera_info_late_matched": "0",
+    "camera_info_pending_dropped": "0",
+    "camera_info_cache_evicted": "0",
+    "cupy_pool_used_bytes": "61764096",
+    "cupy_pool_total_bytes": "243337728",
+    "traversability_publish_hz": "2.539",
+    "geometry_valid_cells": "70514",
+    "height_drift_bias_z": "0.15465315176406866",
+    "height_drift_sample_cells": "2988",
+    "upper_bound_cells": "11051",
+    "visibility_cleaned_cells": "99",
+    "visibility_input_rays": "4096",
+    "semantic_input_points": "27242",
+    "semantic_aggregated_cells": "6318",
+    "semantic_valid_cells": "20355",
+    "pending_sensors": "0",
+    "pending_predictions": "0",
+    "semantic_sensor_age_eviction": "138",
+    "semantic_fatal_reason": "",
+    "health_eomt_output_stale": "1",
+    "decode_sec": "0.0010",
+    "tf_lookup_sec": "0.0001",
+    "window_update_sec": "0.0009",
+    "geometry_sec": "0.2024",
+    "geometry_prepare_sec": "0.0038",
+    "geometry_drift_sec": "0.0032",
+    "geometry_visibility_sec": "0.0093",
+    "geometry_map_update_sec": "0.1669",
+    "geometry_map_center_sec": "0.0024",
+    "geometry_map_maintenance_sec": "0.0008",
+    "geometry_map_backup_sec": "0.0011",
+    "geometry_map_clear_sec": "0.0016",
+    "geometry_map_visibility_apply_sec": "0.1489",
+    "geometry_map_fusion_sec": "0.0119",
+    "geometry_map_commit_sec": "0.0001",
+    "geometry_world_fields_sec": "0.0046",
+    "geometry_risk_sec": "0.0052",
+    "geometry_sample_sec": "0.0080",
+    "geometry_transfer_sec": "0.0008",
+    "geometry_profile_gap_sec": "0.0005",
+    "semantic_grid_sec": "0.0073",
+    "risk_fusion_sec": "0.0021",
+    "publish_sec": "0.0141",
+    "scan_deskew_sec": "0.0009",
+    "unaccounted_sec": "0.0000",
+    "total_sec": "0.2280",
+    "semantic_inference_sec": "0.1745",
+    "semantic_decode_sec": "0.0234",
+    "semantic_tf_lookup_sec": "0.0002",
+    "semantic_cloud_alignment_sec": "0.0089",
+    "semantic_projection_sec": "0.0591",
+    "semantic_grid_update_sec": "0.0303",
+    "semantic_total_sec": "0.1219"
+  },
+  "semantic_diagnostics": {
+    "processed": "100",
+    "failures": "0",
+    "replaced": "138",
+    "attention_backend": "sdpa",
+    "max_inference_hz": "2.0",
+    "saving_enabled": "False",
+    "saved_predictions": "0",
+    "dropped_predictions": "0",
+    "inference_sec": "0.174514",
+    "torch_allocated_bytes": "642934272"
+  },
+  "errors": [],
+  "semantic_diagnostics_status": [
+    {
+      "level": 0,
+      "message": "EoMT ready"
+    }
+  ],
+  "mapper_diagnostics_status": [
+    {
+      "level": 1,
+      "message": "geometry active; semantic unavailable: eomt_output_stale"
+    }
+  ],
+  "prediction_shape": [
+    1000,
+    2048
+  ],
+  "last_inference_sec": 0.17451372742652893,
+  "prediction_stamp": 1658914750.136212,
+  "passed": true,
+  "duration_wall_sec": 60.0,
+  "ros_master_uri": "http://127.0.0.1:11423/",
+  "code_origins": {
+    "roadrunner_mapping.geometry.gaussian_elevation": "/code_ws_new/RoadRunner_Project/src/roadrunner_mapping/./roadrunner_mapping/geometry/gaussian_elevation.py",
+    "roadrunner_mapping.online.online_fusion": "/code_ws_new/RoadRunner_Project/src/roadrunner_mapping/./roadrunner_mapping/online/online_fusion.py"
+  },
+  "old_goose_package_imported": false
+}

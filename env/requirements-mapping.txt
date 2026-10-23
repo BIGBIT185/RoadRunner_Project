@@ -2,3 +2,5 @@
 numpy==1.22.4
 scipy==1.7.3
 cupy-cuda11x==12.3.0
+# 0.8.4 source requires Python >=3.9 despite missing package metadata gating.
+fastrlock==0.8.3

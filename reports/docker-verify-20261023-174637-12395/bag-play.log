@@ -1,0 +1,9 @@
+[INFO] [1792748841.354949808]: Opening /data/goose.bag
+Waiting 2 seconds after advertising topics... done.
+Hit space to toggle paused, or 's' to step.
+ [DELAYED]  Bag Time: 1658914725.256742   Duration: 0.000000 / 24.999974   Delay: 0.00
+ [RUNNING]  Bag Time: 1658914725.256742   Duration: 0.000000 / 24.999974
+[Repeated console progress omitted]
+ [RUNNING]  Bag Time: 1658914750.252676   Duration: 24.995934 / 24.999974
+ [RUNNING]  Bag Time: 1658914750.252914   Duration: 24.996172 / 24.999974
+Done.

@@ -1,0 +1,44 @@
+1/4 Fresh catkin build
+2/4 Core regression
+........................................................................ [ 11%]
+........................................................................ [ 22%]
+........................................................................ [ 33%]
+........................................................................ [ 44%]
+........................................................................ [ 55%]
+.s...................................................................... [ 66%]
+........................................................................ [ 77%]
+........................................................................ [ 88%]
+........................................................................ [ 99%]
+..                                                                       [100%]
+649 passed, 1 skipped in 31.21s
+3/4 ROS imports, Torch CUDA and CuPy RawKernel
+{
+  "environment": "mapping",
+  "python": "3.8.16",
+  "numpy": "1.22.4",
+  "torch": "2.4.1+cu118",
+  "torch_cuda": "11.8",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch_result": 14.0,
+  "python_utf8_mode": 1,
+  "cupy": "12.3.0",
+  "scipy": "1.7.3",
+  "opencv": "4.5.5",
+  "cuda_runtime": 11080,
+  "cupy_kernel": true
+}
+{
+  "environment": "semantic",
+  "python": "3.10.14",
+  "numpy": "1.26.4",
+  "torch": "2.7.0+cu118",
+  "torch_cuda": "11.8",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch_result": 14.0,
+  "python_utf8_mode": 1,
+  "transformers": "4.56.1",
+  "semantic_ros_message": true
+}
+4/4 GOOSE short replay: model ready, inference, fusion, elevation and probability
+WARNING: topic [/roadrunner_semantic/ready] does not appear to be published yet
+GOOSE passed; semantic predictions: 100 ; semantic fusions: 89 ; maps: {'ordinary': 102, 'cvar': 102}

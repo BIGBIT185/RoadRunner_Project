@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "gui_authorization_configured": true,
+  "gpu_requested": true,
+  "parent_mount": "/home/liu/code_ws_new:/code_ws_new",
+  "existing_container_preserved": true,
+  "container_removed_after_check": true
+}

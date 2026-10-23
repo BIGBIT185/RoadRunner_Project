@@ -1,0 +1,15 @@
+{
+  "environment": "mapping",
+  "python": "3.8.16",
+  "numpy": "1.22.4",
+  "torch": "2.4.1+cu118",
+  "torch_cuda": "11.8",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch_result": 14.0,
+  "python_utf8_mode": 1,
+  "cupy": "12.3.0",
+  "scipy": "1.7.3",
+  "opencv": "4.5.5",
+  "cuda_runtime": 11080,
+  "cupy_kernel": true
+}

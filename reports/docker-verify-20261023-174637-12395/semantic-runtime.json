@@ -1,0 +1,12 @@
+{
+  "environment": "semantic",
+  "python": "3.10.14",
+  "numpy": "1.26.4",
+  "torch": "2.7.0+cu118",
+  "torch_cuda": "11.8",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch_result": 14.0,
+  "python_utf8_mode": 1,
+  "transformers": "4.56.1",
+  "semantic_ros_message": true
+}

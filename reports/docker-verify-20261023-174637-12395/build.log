@@ -1,0 +1,92 @@
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: /code_ws_new/RoadRunner_Project/devel
+-- Using CMAKE_PREFIX_PATH: /opt/ros/noetic
+-- This workspace overlays: /opt/ros/noetic
+-- Found PythonInterp: /opt/conda/bin/python3 (found suitable version "3.8.16", minimum required is "3")
+-- Using PYTHON_EXECUTABLE: /opt/conda/bin/python3
+-- Using Debian Python package layout
+-- Found PY_em: /opt/conda/lib/python3.8/site-packages/em.py
+-- Using empy: /opt/conda/lib/python3.8/site-packages/em.py
+-- Using CATKIN_ENABLE_TESTING: OFF
+-- catkin 0.8.12
+-- BUILD_SHARED_LIBS is on
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 1 packages in topological order:
+-- ~~  - roadrunner_mapping
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'roadrunner_mapping'
+-- ==> add_subdirectory(roadrunner_mapping)
+-- Using these message generators: gencpp;geneus;genlisp;gennodejs;genpy
+-- roadrunner_mapping: 1 messages, 0 services
+-- Installing devel-space wrapper /code_ws_new/RoadRunner_Project/src/roadrunner_mapping/scripts/mapping_node.py to /code_ws_new/RoadRunner_Project/devel/lib/roadrunner_mapping
+-- Installing devel-space wrapper /code_ws_new/RoadRunner_Project/src/roadrunner_mapping/scripts/semantic_node.py to /code_ws_new/RoadRunner_Project/devel/lib/roadrunner_mapping
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /code_ws_new/RoadRunner_Project/build
+Scanning dependencies of target sensor_msgs_generate_messages_cpp
+Scanning dependencies of target std_msgs_generate_messages_cpp
+Scanning dependencies of target sensor_msgs_generate_messages_py
+Scanning dependencies of target std_msgs_generate_messages_py
+Scanning dependencies of target _roadrunner_mapping_generate_messages_check_deps_EomtSemanticPrediction
+Scanning dependencies of target std_msgs_generate_messages_lisp
+Scanning dependencies of target std_msgs_generate_messages_nodejs
+Scanning dependencies of target sensor_msgs_generate_messages_nodejs
+Scanning dependencies of target std_msgs_generate_messages_eus
+Scanning dependencies of target sensor_msgs_generate_messages_lisp
+Scanning dependencies of target sensor_msgs_generate_messages_eus
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target sensor_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target _roadrunner_mapping_generate_messages_check_deps_EomtSemanticPrediction
+Scanning dependencies of target roadrunner_mapping_generate_messages_py
+Scanning dependencies of target roadrunner_mapping_generate_messages_eus
+Scanning dependencies of target roadrunner_mapping_generate_messages_nodejs
+Scanning dependencies of target roadrunner_mapping_generate_messages_lisp
+Scanning dependencies of target roadrunner_mapping_generate_messages_cpp
+[ 28%] Generating EusLisp code from roadrunner_mapping/EomtSemanticPrediction.msg
+[ 28%] Generating EusLisp manifest code for roadrunner_mapping
+[ 42%] Generating Python from MSG roadrunner_mapping/EomtSemanticPrediction
+[ 57%] Generating Lisp code from roadrunner_mapping/EomtSemanticPrediction.msg
+[ 71%] Generating Javascript code from roadrunner_mapping/EomtSemanticPrediction.msg
+[ 85%] Generating C++ code from roadrunner_mapping/EomtSemanticPrediction.msg
+[ 85%] Built target roadrunner_mapping_generate_messages_lisp
+[ 85%] Built target roadrunner_mapping_generate_messages_nodejs
+[ 85%] Built target roadrunner_mapping_generate_messages_cpp
+[100%] Generating Python msg __init__.py for roadrunner_mapping
+[100%] Built target roadrunner_mapping_generate_messages_py
+[100%] Built target roadrunner_mapping_generate_messages_eus
+Scanning dependencies of target roadrunner_mapping_generate_messages
+[100%] Built target roadrunner_mapping_generate_messages
+Base path: /code_ws_new/RoadRunner_Project
+Source space: /code_ws_new/RoadRunner_Project/src
+Build space: /code_ws_new/RoadRunner_Project/build
+Devel space: /code_ws_new/RoadRunner_Project/devel
+Install space: /code_ws_new/RoadRunner_Project/install
+Creating symlink "/code_ws_new/RoadRunner_Project/src/CMakeLists.txt" pointing to "/opt/ros/noetic/share/catkin/cmake/toplevel.cmake"
+####
+#### Running command: "cmake /code_ws_new/RoadRunner_Project/src -DPYTHON_EXECUTABLE=/opt/conda/bin/python3 -DCMAKE_BUILD_TYPE=Release -DCATKIN_ENABLE_TESTING=OFF -DCATKIN_DEVEL_PREFIX=/code_ws_new/RoadRunner_Project/devel -DCMAKE_INSTALL_PREFIX=/code_ws_new/RoadRunner_Project/install -G Unix Makefiles" in "/code_ws_new/RoadRunner_Project/build"
+####
+####
+#### Running command: "make -j32 -l32" in "/code_ws_new/RoadRunner_Project/build"
+####

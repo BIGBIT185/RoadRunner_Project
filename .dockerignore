@@ -1,0 +1,6 @@
+# The image contains dependencies; source, models and datasets are mounted at runtime.
+**
+!docker/
+!docker/**
+!env/
+!env/**

@@ -1,0 +1,7 @@
+--extra-index-url https://download.pytorch.org/whl/cu118
+# geometry_hindsight imports Torch and OpenCV even with the CuPy online backend.
+torch==2.4.1+cu118
+torchvision==0.19.1+cu118
+opencv-python==4.5.5.64
+Pillow==10.4.0
+pytest==7.4.4

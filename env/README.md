@@ -1,6 +1,10 @@
 # 安装环境
 
-代码和模型均来自本工程，当前复用已有 `roadrunner_bevfusion_container` 的安装环境；不 source 原 RoadRunner overlay。容器把宿主 `/home/liu/code_ws_new` 挂载为 `/code_ws_new`，提供 NVIDIA GPU、host 网络和 X11。启动脚本默认使用本机 UID/GID 创建构建产物。
+代码和模型均来自本工程，可复用已有 `roadrunner_bevfusion_container` 的安装环境，或从公开基础镜像构建新环境；不 source 原 RoadRunner overlay。容器把宿主工程父目录挂载为 `/code_ws_new`，提供 NVIDIA GPU、host 网络和 X11。启动脚本默认使用本机 UID/GID 创建构建产物。
+
+也可通过`./scripts/build_docker.bash`从公开CUDA11.8 / Ubuntu20.04基础镜像独立构建，再用`./scripts/create_container.bash`创建容器，详见[部署说明](../部署说明.md)。Dockerfile位于`docker/`。新镜像几何环境除下列数值依赖外，使用Torch2.4.1+cu118/torchvision0.19.1和Pillow10.4.0；语义环境继续使用原哈希锁。两个解释器分别安装`docker/requirements-ros-python.txt`，无需从旧容器复制兼容依赖目录。`verify_docker.bash`用于隔离验证新镜像。
+
+新镜像显式启用`PYTHONUTF8=1`，防止CUDA原生库改变线程locale后，Python按ASCII读取中文源码或路径。CuPy依赖`fastrlock`固定为0.8.3，避免0.8.4源码与Python3.8不兼容。
 
 - Ubuntu 20.04 / ROS Noetic；catkin、message_generation/runtime、rospy、message_filters、tf2_ros、sensor_msgs、std_msgs、std_srvs、diagnostic_msgs、grid_map_msgs、grid_map_rviz_plugin、RViz、rosbag。
 - 几何解释器 `/opt/conda/bin/python3`：Python 3.8.16、NumPy 1.22.4、SciPy 1.7.3、CuPy 12.3.0 / CUDA 11.8；数值依赖见 `requirements-mapping.txt`。

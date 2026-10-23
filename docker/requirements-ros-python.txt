@@ -1,0 +1,11 @@
+# Install separately in each interpreter; never share compiled PyYAML extensions.
+rospkg==1.5.1
+catkin-pkg==0.5.2
+empy==3.3.4
+PyYAML==6.0.2
+defusedxml==0.7.1
+pyparsing==3.1.4
+docutils==0.20.1
+python-dateutil==2.9.0.post0
+six==1.16.0
+distro==1.9.0

@@ -120,6 +120,7 @@ RoadRunner_Project/
 ├── 部署说明.md                   # 依赖、容器/模型迁移与编译
 ├── 启动说明.md                   # 最少启动和停止操作
 ├── scripts/                     # 当前容器环境的构建、启动、回放及验证入口
+├── docker/                      # 公开基础镜像的Dockerfile、运行依赖与隔离验证工具
 ├── src/roadrunner_mapping/       # 唯一ROS包
 │   ├── scripts/                 # mapping_node.py、semantic_node.py、语义环境启动器
 │   ├── roadrunner_mapping/
@@ -145,6 +146,9 @@ RoadRunner_Project/
 
 | 脚本（位于scripts/） | 用途 |
 |---|---|
+| `build_docker.bash` | 从公开CUDA基础镜像构建ROS/几何/语义环境 |
+| `create_container.bash` | 配置GPU、工程挂载和桌面授权，创建运行容器 |
+| `verify_docker.bash` | 临时容器内全新构建、GPU/回归检查，可选GOOSE实包验收 |
 | `build.bash` | 在现有容器内catkin编译，生成本工程消息与devel |
 | `ros.bash / container_env.bash` | 使用ROS Noetic与本工程overlay，隔离旧工作区 |
 | `run.bash` | 前台运行统一算法launch |
@@ -156,9 +160,10 @@ RoadRunner_Project/
 
 ## 7. 已验证的结果与边界
 
+- 独立Docker镜像：从公开CUDA基础构建后，全新catkin编译、649项回归、两环境GPU/ROS及GOOSE实际语义建图通过，见[Docker镜像验证](reports/Docker镜像验证.md)。模型与bag单独挂载，无需旧容器。
 - 核心回归：649通过、1项几何环境可选Transformers用例跳过；该处理器用例已在独立语义环境直接执行通过。
 - GOOSE实包：实际图像/点云/TF输入、EoMT推理、语义融合、高程与两路概率GridMap及RViz显示通过。
-- 当前硬件为RTX 4060 Laptop 8GB。在同段GOOSE、40m/.2m、语义及RViz开启、1倍速条件下，预热5秒统计25秒：两项可见性功能开启约2.35Hz，同时关闭约6.67Hz，语义约2Hz。这是短片段地图发布频率，区别于RViz渲染帧率。
+- 当前硬件为RTX 4060 Laptop 8GB。前序环境在同段GOOSE、40m/.2m、语义及RViz开启、1倍速条件下，预热5秒统计25秒：两项可见性功能开启约2.35Hz，同时关闭约6.67Hz，语义约2Hz。这是短片段地图发布频率，区别于RViz渲染帧率；新Docker镜像未重测此性能对比。
 
 证据见 [验收记录](reports/验收记录.md)、[帧率对比](reports/可见性开关帧率对比.md)和[RViz截图](reports/rviz-goose.png)。不同数据域的语义精度、完整bag长期性能及真实车辆闭环尚未验收。
 

@@ -1,0 +1,61 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 4.43kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/nvidia/cuda:11.8.0-base-ubuntu20.04@sha256:8803790082168d6fc95089288e8debb8e8318386658d10deb5c7175ec83b5e14
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 164B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [stage-0  1/10] FROM docker.io/nvidia/cuda:11.8.0-base-ubuntu20.04@sha256:8803790082168d6fc95089288e8debb8e8318386658d10deb5c7175ec83b5e14
+#5 resolve docker.io/nvidia/cuda:11.8.0-base-ubuntu20.04@sha256:8803790082168d6fc95089288e8debb8e8318386658d10deb5c7175ec83b5e14 0.0s done
+#5 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 2.33kB done
+#4 DONE 0.0s
+
+#6 [stage-0  2/10] RUN apt-get update     && apt-get install -y --no-install-recommends        ca-certificates curl gnupg2 build-essential cmake pkg-config        python3-dev python3-pip libgl1-mesa-glx libglib2.0-0        libxkbcommon-x11-0 xauth        cuda-nvrtc-11-8 cuda-nvrtc-dev-11-8 cuda-cudart-dev-11-8        libcublas-11-8 libcusolver-11-8 libcurand-11-8 libcusparse-11-8 libcufft-11-8     && curl -fsSL --retry 5 https://raw.githubusercontent.com/ros/rosdistro/master/ros.key        -o /usr/share/keyrings/ros-archive-keyring.gpg     && echo 'deb [signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros/ubuntu focal main'        > /etc/apt/sources.list.d/ros1.list     && apt-get update     && apt-get install -y --no-install-recommends        ros-noetic-ros-base ros-noetic-catkin ros-noetic-message-generation        ros-noetic-message-filters ros-noetic-tf2-ros ros-noetic-diagnostic-msgs        ros-noetic-sensor-msgs ros-noetic-std-msgs ros-noetic-std-srvs        ros-noetic-grid-map-msgs ros-noetic-grid-map-rviz-plugin        ros-noetic-rviz ros-noetic-rosbag python3-catkin-pkg python3-rospkg     && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [stage-0  3/10] RUN curl -fsSL --retry 5        https://repo.anaconda.com/miniconda/Miniconda3-py38_23.1.0-1-Linux-x86_64.sh        -o /tmp/mapping-python.sh     && echo '640b7dceee6fad10cb7e7b54667b2945c4d6f57625d062b2b0952b7f3a908ab7  /tmp/mapping-python.sh' | sha256sum -c -     && bash /tmp/mapping-python.sh -b -p /opt/conda     && rm /tmp/mapping-python.sh     && /opt/conda/bin/conda clean -afy
+#7 CACHED
+
+#8 [stage-0  4/10] RUN curl -fsSL --retry 5        https://repo.anaconda.com/miniconda/Miniconda3-py310_24.7.1-0-Linux-x86_64.sh        -o /tmp/semantic-python.sh     && echo '684cda724bc37e3bbbb342e440fc4cac515c92e91a489eb4359feca35382894b  /tmp/semantic-python.sh' | sha256sum -c -     && bash /tmp/semantic-python.sh -b -p /opt/eomt     && rm /tmp/semantic-python.sh     && /opt/eomt/bin/conda clean -afy
+#8 CACHED
+
+#9 [stage-0  5/10] COPY env/requirements-mapping.txt env/requirements-eomt.lock docker/requirements-*.txt /opt/roadrunner/env/
+#9 CACHED
+
+#10 [stage-0  6/10] RUN --mount=type=cache,target=/root/.cache/pip     /opt/conda/bin/python3 -m pip install pip==24.2 setuptools==70.3.0 wheel==0.44.0     && /opt/conda/bin/python3 -m pip install        -r /opt/roadrunner/env/requirements-mapping.txt        -r /opt/roadrunner/env/requirements-mapping-runtime.txt        -r /opt/roadrunner/env/requirements-ros-python.txt
+#10 CACHED
+
+#11 [stage-0  7/10] RUN --mount=type=cache,target=/root/.cache/pip     /opt/eomt/bin/python -m pip install pip==24.2 setuptools==70.3.0 wheel==0.44.0     && /opt/eomt/bin/python -m pip install --require-hashes        -r /opt/roadrunner/env/requirements-eomt.lock     && /opt/eomt/bin/python -m pip install        -r /opt/roadrunner/env/requirements-ros-python.txt
+#11 CACHED
+
+#12 [stage-0  8/10] RUN source /opt/ros/noetic/setup.bash     && mkdir -p /opt/roadrunner/ros_python_compat     && /opt/conda/bin/python3 -c 'import cv2, numpy, rospy, scipy, tf2_ros, torch; from importlib.metadata import version; assert numpy.__version__ == "1.22.4"; assert version("cupy-cuda11x") == "12.3.0"'     && /opt/eomt/bin/python -c 'import rospy, torch, transformers; from transformers import AutoImageProcessor, AutoModelForUniversalSegmentation; assert transformers.__version__ == "4.56.1"'
+#12 DONE 5.2s
+
+#13 [stage-0  9/10] COPY docker/verify_runtime.py /opt/roadrunner/verify_runtime.py
+#13 DONE 0.1s
+
+#14 [stage-0 10/10] WORKDIR /code_ws_new/RoadRunner_Project
+#14 DONE 0.1s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 0.2s done
+#15 exporting manifest sha256:49deaf7845131e557e0b1888fb9a2cdfb411768ac9270ba73131c6042987333f 0.0s done
+#15 exporting config sha256:d228a7ac0d092741c382c25031518fc51e9b5d132ddffb18e13575be7b61de29 0.0s done
+#15 exporting attestation manifest sha256:2a260ce64ce0aca971d832b928204dd4c0250723ead148ad37175c2597da3ff8 0.0s done
+#15 exporting manifest list sha256:b3dfe5a66e62a83c4811197531dc150058d6def20181c6bac3c0303d30bebef5 0.0s done
+#15 naming to docker.io/library/roadrunner-mapping:20261023 done
+#15 unpacking to docker.io/library/roadrunner-mapping:20261023 0.1s done
+#15 DONE 0.4s

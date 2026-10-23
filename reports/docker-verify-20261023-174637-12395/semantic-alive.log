@@ -1,0 +1,3 @@
+rosnode: node is [/roadrunner_semantic]
+pinging /roadrunner_semantic with a timeout of 3.0s
+xmlrpc reply from http://127.0.0.1:36565/	time=0.833511ms
